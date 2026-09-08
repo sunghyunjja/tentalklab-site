@@ -82,6 +82,7 @@ nav.main-nav {
 
 nav.main-nav a {
   border-radius: 999px;
+  white-space: nowrap;
   transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
@@ -247,9 +248,22 @@ nav.main-nav a:not(.nav-cta):hover {
 
 @media (max-width: 780px) {
   .grid { grid-template-columns: 1fr; }
-  nav.main-nav { gap: 8px; font-size: 0.85rem; }
-  nav.main-nav a:not(.nav-cta) { padding: 8px 14px; }
+  nav.main-nav { gap: 6px; font-size: 0.82rem; }
+  nav.main-nav a:not(.nav-cta) { padding: 7px 11px; }
+  .nav-cta { padding: 8px 14px; }
 }
+
+/* extra breathing room for narrow phones (iPhone SE/mini, small Android) */
+@media (max-width: 400px) {
+  header.site .wrap { padding-left: 16px; padding-right: 16px; }
+  .logo img { height: 44px; }
+  nav.main-nav { gap: 5px; font-size: 0.76rem; }
+  nav.main-nav a:not(.nav-cta) { padding: 6px 9px; }
+  .nav-cta { padding: 7px 12px; }
+}
+
+/* safety net: never allow a rogue element to force page-wide horizontal scroll */
+html, body { overflow-x: hidden; }
 
 .card {
   background: var(--surface);
